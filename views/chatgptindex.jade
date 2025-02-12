@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  div(class="main-container")
+    div(class="header container-fluid")
+      div(id="title")
+        h1="Ignatian Heritage "
+          img(src="/images/LIBA_logo_2.png", id="liba_logo",alt="LIBA")
+          h1="AI Powered By LIBA Chennai"
+      div(id="navBtn")
+        a(id="aboutBtn")
+          h6  About Us
+    div(id="chat-page")
+      div(class="chat-container")
+        div(class="loader")
+          div(class="content")
+        div(id="message-container" class="message-placeholder")
+          div(class="bot-conversation conversation")
+            span(class="avatar bot-avatar")
+              img(src="/images/ihs_logo.png", alt="ign_bot")
+            span(class="message") Welcome to IgnAI
+            div(id="initImage")
+              img(src="/images/initImage.jpeg")
+      div(class="chatbox")
+        div(class="querybox")
+          input(id="assistant-id",type="hidden",value="asst_IQ5HvMSgd9VEiJ1kzFEGffF3",placeholder="",name="assistantId")
+          textarea(type="text", placeholder="How I can help you?", id="query", value="", class="form-control" , name="query")
+          input(type="button",value="",id="query-submit" ,class="btn" )
+        div(id="sample-questions")
+          div(class="row")
+            div(id="ques1" class="col sample-question") What is Ignatian prayer?
+            div(id="ques2" class="col sample-question") What are the key points of Ignatian spirituality?
+          div(class="row")
+            div(id="ques3" class="col sample-question") What is the Jesuit way of teaching?
+            div(id="ques4" class="col sample-question") What is Ratio Studiorum Ignatius?
+    div(id="about" class="hide chat-container")
+      div(id="about-content" class="message-placeholder")
+        h3 About Loyola Institute of Business Administration (LIBA), Chennai, India
+        div
+          p Loyola Institute of Business Administration (LIBA), established in 1979, is a renowned Jesuit business school located in Chennai, India. Known for its excellence and global repute for more than five hundred year old unique in business education, LIBA emphasizes ethical leadership and holistic development. It offers a range of programs, including full-time, weekend and part-time PGDM courses approved by AICTE, a Ph.D. program affiliated to University of Madras, and many postgraduate executive diplomas suitable for working executives. With a focus on innovative learning and competency-based assessments, LIBA prepares students to excel with ethics in a dynamic global business environment and lead a life based on values.
+          br
+          p Dr. C. Joe Arun, SJ, the current Director of LIBA, holds a doctoral degree from Oxford University, UK, and a Doctor of Business Administration (DBA) from SSBM, Geneva. He brings extensive experience from leadership positions at various esteemed academic institutions and has excelled in many consultancy projects focused on integrating technology especially AI to reimagine and restructure organizations to yield innovative outcomes. His expertise includes training in Generative AI, demonstrating his commitment to advancing innovative educational pedagogical practices at LIBA. In addition to his role at LIBA, Dr. Joe Arun, SJ serves as the Chairman of the Tamil Nadu State Minority Commission, Government of Tamil Nadu.
+          br
+        h3 What is IgnAI.ai?
+        div 
+        p Ignai.ai, powered by LIBA, is a specialized AI tool designed to embody the principles of Ignatian pedagogy of Context-Experience-Reflection-Action, emphasizing the Ignatian values of excellence (Magis), care for individuals (Cura Personalis), discernment, and finding God in all things. Drawing on seminal works like the Spiritual Exercises of St. Ignatius, the Ratio Studiorum, and varied repository of Ignatian spirituality, this IgnAI.ai platform provides a comprehensive understanding of Ignatian values and tradition. It promotes holistic education by integrating intellectual, emotional, moral, and spiritual growth, aligning with the Jesuit tradition of higher education.
+        br
+        p What sets IgnAI apart is its use of ChatGPT powered by Generative AI technology, providing a unique, interactive platform for users to inquire about various aspects of St Ignatius of Loyola's life, teachings, tradition and heritage. This platform not only serves as an educational resource but also as a tool for spiritual and ethical inquiry, more sharply a tool for discernment for everyday life. The creation of Ignai.ai was conceived and promoted by Dr. C. Joe Arun, SJ, reflecting LIBA's innovative spirit and commitment to embedding technology in the learning-teaching-assessment processes for educational excellence.
+        br
+        h3 Center for Artificial Intelligence (CAI)
+        div
+          p  
+            | The 
+            strong Centre for Artificial Intelligence (CAI) at Loyola Institute of Business Administration (LIBA) 
+            | aims to advance business education and research by augmenting power of AI, especially making learning process embedded in artificial intelligence. By equipping students with cutting-edge AI skills and fostering collaboration with industry, the Centre aims to empower future leaders to navigate the complexities of a data-driven world. The Centre is driving innovation through projects, research, and hands-on experience, ensuring that it shapes the next generation of AI-enabled business professionals. Through its initiatives, the Centre is committed to creating a future where AI plays a pivotal role in transforming the business landscape.
+          p Dr. C. Joe Arun SJ, Director LIBA 
+          p Dr. G. Jaculine Priya, Chair CAI
+          p Ms. N. Rashmi, Co-Chair CAI
+
+      div(id="about-footer" class="chatbox")
+        p Note: Please email your suggestions to 
+          a(href="mailto: ignai@liba.edu") ignai@liba.edu
+  #footer
+    script(src="/javascripts/chatgpt.js", type="text/javascript")
