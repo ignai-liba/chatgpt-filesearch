@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div(class="main-container")
+    div(class="header container-fluid")
+        div(id="title")
+          h1="Ignatian Heritage "
+            img(src="/images/LIBA_logo_2.png", id="liba_logo",alt="LIBA")
+            h1="AI Powered By LIBA Chennai"
+    div(class="login-container")
+      button(id="google-login" class="login-button-container btn btn-dark")
+          img(class="google_logo" src="/images/google_logo.svg", alt="google-logo")
+          span(class="login_button") Sign in with Google
+  #footer
+    script(src="/javascripts/login.js", type="text/javascript")

@@ -23,6 +23,12 @@ a {
     display: flex;
     justify-content: space-between;
     background-color: #0f8787;
+    
+    #navBtn{
+      display: flex;
+      justify-content: end;
+      gap: 20px;
+    }
   }
   #chat-page {
     width: 100vw;
@@ -194,6 +200,33 @@ a {
   }
 }
 
+.login-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom:0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-button-container {
+    border-radius: 30px;
+    display: flex;
+    height: 50px;
+    width: 250px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  .login_button {
+    border-radius: 2px;
+  }
+  .google_logo {
+    width: 24px;
+  }
+}
+
 
 @media only screen and (max-width: 767px) {
   body {
@@ -206,6 +239,7 @@ a {
       #navBtn{
         display: flex;
         justify-content: end;
+        gap: 20px;
       }
       h1 {
         font-size: 20px;

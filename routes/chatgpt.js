@@ -139,7 +139,14 @@ router.post('/query', async function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-    res.render('chatgptindex', { title: 'Ignatian Heritage AI Powered By LIBA Chennai ' });
+    try {
+        const {email, name, picture} = res.locals.user;
+        console.log("Name:", res.locals);
+        res.render('chatgptindex', { title: 'Ignatian Heritage AI Powered By LIBA Chennai ' , name : name});
+      } catch (err) {
+        console.error('Error sending profile page', err);
+        return next(err);
+      }
 });
 
 module.exports = router;
