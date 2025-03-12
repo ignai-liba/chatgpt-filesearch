@@ -11,7 +11,6 @@ class AuthService {
   #oauthClient;
 
   constructor() {
-    console.log("#CLIENT_ID:",process.env.CLIENT_ID);
     this.#oauthClient = new google.auth.OAuth2(
       process.env.CLIENT_ID,
       process.env.CLIENT_SECRET,

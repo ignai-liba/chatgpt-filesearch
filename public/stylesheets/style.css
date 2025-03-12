@@ -207,8 +207,21 @@ a {
   bottom:0;
   right: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+
+  .login-phrase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+      font-family: Cardo, serif;
+      font-weight: 400;
+      font-size: 30px;
+    }
+  }
 
   .login-button-container {
     border-radius: 30px;
@@ -278,6 +291,13 @@ a {
       }
     } 
   }
+  .login-container .login-phrase {
+    span {
+      font-family: Cardo, serif;
+      font-weight: 400;
+      font-size: 22px;
+    }
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -287,5 +307,15 @@ a {
   }
   .chatbox{
     padding: 10px calc(6.25rem + (100vw - 1000px)/2);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .login-container .login-phrase {
+    span {
+      font-family: Cardo, serif;
+      font-weight: 400;
+      font-size: 18px;
+    }
   }
 }
