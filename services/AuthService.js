@@ -3,9 +3,9 @@ var {google} = require('googleapis');
  * Service for handling authentication information
  */
 class AuthService {
-  static #CLIENT_ID = process.env.CLIENT_ID;
-  static #CLIENT_SECRET = process.env.CLIENT_SECRET;
-  static #REDIRECT_URI = process.env.REDIRECT_URI;
+  //static #CLIENT_ID = process.env.CLIENT_ID;
+  //static #CLIENT_SECRET = process.env.CLIENT_SECRET;
+  //static #REDIRECT_URI = process.env.REDIRECT_URI;
   static #SCOPES = ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'];
 
   #oauthClient;
@@ -23,8 +23,6 @@ class AuthService {
       access_type: 'offline',
       scope: AuthService.#SCOPES,
       include_granted_scopes: true,
-      // redirect_uri:  process.env.REDIRECT_URI,
-      // client_id: process.env.CLIENT_ID,
       prompt: 'consent'
     });
   }
