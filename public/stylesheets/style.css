@@ -10,20 +10,30 @@ a {
   color: #00B7FF;
 }
 
-.main-container{
+.main-container {
   background-color: #283d3d;
   color: #fff;
   /* display: flex; */
   /* flex-direction: column; */
   height: 100dvh;
-  .chat-container,.chatbox{
+
+  .chat-container,
+  .chatbox {
     display: block;
   }
-  .header{
+
+  .header {
     display: flex;
     justify-content: space-between;
     background-color: #0f8787;
+
+    #navBtn {
+      display: flex;
+      justify-content: end;
+      gap: 20px;
+    }
   }
+
   #chat-page {
     width: 100vw;
   }
@@ -32,8 +42,10 @@ a {
     .message-placeholder {
       padding: 20px 40px;
     }
+
     .chatbox {
       padding: 10px;
+
       a {
         color: white;
       }
@@ -41,38 +53,45 @@ a {
   }
 }
 
-.header{
+.header {
   box-shadow: 0 0 10px 0 black;
   padding-top: 10px;
   margin-bottom: 10px;
+
   img#liba_logo {
     height: 30px;
     padding-left: 5px;
     margin-bottom: 8px;
   }
-  a{
+
+  a {
     text-decoration: none;
     color: white;
     cursor: pointer;
-    h6{
+
+    h6 {
       padding-top: 5px;
     }
   }
-  h1{
+
+  h1 {
     font-family: "Baskervville SC", serif;
     font-size: 1.5rem;
     display: inline-block;
   }
-  p{
+
+  p {
     font-family: "Inconsolata";
   }
-  h1,p{
+
+  h1,
+  p {
     text-align: center;
   }
 }
 
 .chat-container {
-  
+
   .loader {
     left: 0;
     top: 0;
@@ -151,8 +170,10 @@ a {
   bottom: 0;
   padding: 10px 6.25rem;
   background-color: #0f8787;
-  .querybox{
+
+  .querybox {
     position: relative;
+
     #query {
       resize: none;
       border-radius: 20px;
@@ -164,7 +185,7 @@ a {
       height: 34px;
       border-color: transparent;
       border-radius: 10rem;
-      background-image: url(../images/send_icon.png) ;
+      background-image: url(../images/send_icon.png);
       position: absolute;
       right: 0.25rem;
       bottom: 0.23rem;
@@ -175,8 +196,9 @@ a {
     opacity: 0.5;
   }
 
-  #sample-questions{
+  #sample-questions {
     margin-top: 5px;
+
     .sample-question {
       background-color: #283d3d;
       border-radius: 10px;
@@ -184,9 +206,11 @@ a {
       margin: 5px;
       cursor: pointer;
     }
+
     .sample-question:hover {
       opacity: 0.5;
     }
+
     .row {
       margin-left: 0;
       margin-right: 0;
@@ -194,23 +218,88 @@ a {
   }
 }
 
+.main-container.login-page {
+
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+
+
+  .login-container {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 56px;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    background-image: url('/images/login_wide.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100vw calc(100vh - 56px);
+    padding-left: 20px;
+
+    .login-phrase {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      span {
+        font-family: Cardo, serif;
+        font-weight: 400;
+        font-size: 30px;
+      }
+    }
+
+    .login-button-container {
+      border-radius: 30px;
+      display: flex;
+      height: 50px;
+      width: 250px;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .login_button {
+      border-radius: 2px;
+    }
+
+    .google_logo {
+      width: 24px;
+    }
+  }
+}
 
 @media only screen and (max-width: 767px) {
   body {
     .header {
       flex-direction: column;
       padding-top: 2rem;
-      #title{
+
+      #title {
         text-align: center;
       }
-      #navBtn{
+
+      #navBtn {
         display: flex;
         justify-content: end;
+        gap: 20px;
       }
+
       h1 {
         font-size: 20px;
       }
-      p{
+
+      p {
         font-size: 14px;
       }
     }
@@ -223,35 +312,93 @@ a {
 
       #initImage {
         display: inline-block;
+
         img {
           padding: 10px 10px 0px 0px;
           width: 90vw;
-          height: calc(100dvh - 34rem);;
+          height: calc(100dvh - 34rem);
+          ;
         }
       }
     }
-    .chatbox{
+
+    .chatbox {
       padding: 10px 1rem;
       padding-bottom: 1rem;
-      #sample-questions{
+
+      #sample-questions {
         .row {
           display: block;
+
           .sample-question {
             padding: 10px;
             margin: 10px 0;
           }
         }
       }
-    } 
+    }
+  }
+
+  
+
+  .main-container.login-page {
+
+    .login-container {
+      top: 78px;
+      background-size: 100vw calc(100vh - 78px);
+  
+      .login-phrase {
+  
+        span {
+          font-size: 22px;
+        }
+      }
+  
+      .login-button-container {
+        height: 40px;
+        width: 220px;
+      }
+  
+      .google_logo {
+        width: 24px;
+      }
+    }
   }
 }
 
 @media only screen and (min-width: 1000px) {
 
-  .message-placeholder{
+  .message-placeholder {
     padding: 0 calc(6.25rem + (100vw - 1000px)/2);
   }
-  .chatbox{
+
+  .chatbox {
     padding: 10px calc(6.25rem + (100vw - 1000px)/2);
+  }
+}
+
+@media only screen and (max-width: 518px) {
+  
+  .main-container.login-page {
+
+    .login-container {
+      top: 110px;
+      background-size: 100vw calc(100vh - 110px);
+      background-image: url('/images/login_mob.jpg');
+      align-items: center;
+      padding-bottom: 100px;
+      justify-content: end;
+      padding-left: 0;
+
+      .login-phrase {
+        align-items: center;
+
+        span {
+          text-align: center;
+          font-size: 18px;
+        }
+      }
+
+    }
   }
 }
