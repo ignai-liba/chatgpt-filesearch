@@ -6,7 +6,7 @@ class CookieService {
     static REFRESH_TOKEN_COOKIE = {
         name: 'REFRESH_TOKEN_COOKIE',
         cookie: {
-            domain: process.env.COOKIE_DOMAIN,
+            domain: "ignai.ai",
             httpOnly: true,
             secure: true,
             sameSite: 'lax',
@@ -18,7 +18,7 @@ class CookieService {
     static REFRESH_TOKEN_COOKIE_LOGOUT = {
         name: 'REFRESH_TOKEN_COOKIE_LOGOUT',
         cookie: {
-            domain: process.env.COOKIE_DOMAIN,
+            domain: "ignai.ai",
             httpOnly: true,
             secure: true,
             sameSite: 'lax',
@@ -30,7 +30,7 @@ class CookieService {
     static ID_TOKEN_COOKIE = {
         name: 'ID_TOKEN_COOKIE',
         cookie: {
-            domain: process.env.COOKIE_DOMAIN,
+            domain: "ignai.ai",
             httpOnly: true,
             secure: true,
             sameSite: 'lax',
