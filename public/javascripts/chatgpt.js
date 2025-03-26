@@ -70,12 +70,18 @@ $(document).ready(function () {
         };
 
         $.ajax(settings).done(function (response) {
-            let responseText = response.text.replaceAll(/\[\d+\]/g, '');
-            let citations = response.citations;
-            //display bot message
-            $chatPlaceholder.append("<div class='conversation bot-conversation'><span class='avatar bot-avatar'><img src = '/images/ihs_logo.png' alt='ign_bot'/></span><span class='message'>"+ responseText +"</span><span class='citations'> </span></div>");
-            // scroll to last message
-            $("#message-container").children().get(($("#message-container").children().length-1)).scrollIntoView({behavior: 'smooth'});
+            try {
+
+                let responseText = response.text.replaceAll(/\[\d+\]/g, '');
+                let citations = response.citations;
+                //display bot message
+                $chatPlaceholder.append("<div class='conversation bot-conversation'><span class='avatar bot-avatar'><img src = '/images/ihs_logo.png' alt='ign_bot'/></span><span class='message'>"+ responseText +"</span><span class='citations'> </span></div>");
+                // scroll to last message
+                $("#message-container").children().get(($("#message-container").children().length-1)).scrollIntoView({behavior: 'smooth'});
+            }catch(e) {
+                console.log(e);
+                alert("Somethings not right. Please refresh the window!!");
+            }
         });
     });
 });

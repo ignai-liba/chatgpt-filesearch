@@ -10,17 +10,17 @@ var router = express.Router();
 //   res.render('login');
 // });
 router.get('/', (req, res) => {
-  const idToken = req.cookies[CookieService.ID_TOKEN_COOKIE.name];
-  if (!idToken) {
-    console.log('No ID Token found, sending login page');
-    res.redirect('/login');
-    return;
-  }
-  return res.redirect('/chatgpt');
+  res.redirect('/login');
 });
 
 router.get('/login', (req,res) => {
-  res.render('login');
+  const idToken = req.cookies[CookieService.ID_TOKEN_COOKIE.name];
+  if (!idToken) {
+    console.log('No ID Token found, sending login page');
+    res.render('login');
+    return;
+  }
+  return res.redirect('/chatgpt');
 })
 
 router.get('/logout', async (req, res, next) => {
@@ -37,7 +37,7 @@ router.get('/logout', async (req, res, next) => {
     res.clearCookie(CookieService.ID_TOKEN_COOKIE.name, CookieService.ID_TOKEN_COOKIE.cookie);
     res.clearCookie(CookieService.REFRESH_TOKEN_COOKIE.name, CookieService.REFRESH_TOKEN_COOKIE.cookie);
     res.clearCookie(CookieService.REFRESH_TOKEN_COOKIE_LOGOUT.name, CookieService.REFRESH_TOKEN_COOKIE_LOGOUT.cookie);
-    return res.redirect('/');
+    return res.redirect('/login');
   } catch (err) {
     console.error('Error logging out', err);
     return next(err);

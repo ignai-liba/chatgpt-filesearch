@@ -31,7 +31,7 @@ app.use(async (req, res, next) => {
   const idToken = req.cookies[CookieService.ID_TOKEN_COOKIE.name];
   if (!idToken) {
     console.log('No id token provided');
-    return res.redirect('/');
+    return res.redirect('/login');
   }
 
   // Extract user information from ID token
@@ -44,7 +44,7 @@ app.use(async (req, res, next) => {
   } catch (err) {
     console.error('ID token invalid', err);
     res.clearCookie(CookieService.ID_TOKEN_COOKIE.name, CookieService.ID_TOKEN_COOKIE.cookie);
-    return res.redirect('/');
+    return res.redirect('/login');
   }
 });
 
