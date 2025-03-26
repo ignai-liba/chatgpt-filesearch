@@ -41,6 +41,7 @@ npm start
 ## Usage
 
 - Start the application
+- disable google auth
 - goto localhost:3000/chatgpt in your browser
 - Now you can interact with the bot
 

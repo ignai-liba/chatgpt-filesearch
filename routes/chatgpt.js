@@ -5,7 +5,7 @@ var fs = require('fs');
 // import OpenAI from "openai";
 
 const openai = new OpenAI({
-    apiKey: 'sk-my-service-account1-ZExtGk1fe8QmhI4hzAzRT3Blbk1223dH3Vu3ut0PWfZd9q2a3a'
+    apiKey: process.env.APIKEY
 });
 
 // Create assistant
