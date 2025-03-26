@@ -13,11 +13,15 @@ router.get('/', (req, res) => {
   const idToken = req.cookies[CookieService.ID_TOKEN_COOKIE.name];
   if (!idToken) {
     console.log('No ID Token found, sending login page');
-    res.render('login');
+    res.redirect('/login');
     return;
   }
   return res.redirect('/chatgpt');
 });
+
+router.get('/login', (req,res) => {
+  res.render('login');
+})
 
 router.get('/logout', async (req, res, next) => {
   try {
