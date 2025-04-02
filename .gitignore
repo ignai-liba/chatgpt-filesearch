@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+.gcloudignore
+ngrok.exe
+.env_l
+app.yaml

@@ -24,10 +24,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const isWebView = (userAgent) => {
+  return /wv|WebView/.test(userAgent) || /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(userAgent);
+};
+
 app.use('/', indexRouter.router);
 app.use('/api', indexRouter.controllers);
 
 app.use(async (req, res, next) => {
+
+  const userAgent = req.headers['user-agent'];
+  console.log("user-agent:" , userAgent);
+  if(isWebView(userAgent)){
+    return next();
+  }
   const idToken = req.cookies[CookieService.ID_TOKEN_COOKIE.name];
   if (!idToken) {
     console.log('No id token provided');

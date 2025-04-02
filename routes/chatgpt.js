@@ -4,6 +4,10 @@ var OpenAI = require('openai');
 var fs = require('fs');
 // import OpenAI from "openai";
 
+const isWebView = (userAgent) => {
+  return /wv|WebView/.test(userAgent) || /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(userAgent);
+};
+
 const openai = new OpenAI({
     apiKey: process.env.APIKEY
 });
@@ -139,10 +143,12 @@ router.post('/query', async function (req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
+    const userAgent = req.headers["user-agent"];
+
     try {
-        const {email, name, picture} = res.locals.user;
-        console.log("Name:", res.locals);
-        res.render('chatgptindex', { title: 'Ignatian Heritage AI Powered By LIBA Chennai ' , name : name});
+        // const {email, name, picture} = res.locals?.user;
+        // console.log("Name:", res.locals);
+        res.render('chatgptindex', { title: 'Ignatian Heritage AI Powered By LIBA Chennai ', isMobile: isWebView(userAgent) });
       } catch (err) {
         console.error('Error sending profile page', err);
         return next(err);

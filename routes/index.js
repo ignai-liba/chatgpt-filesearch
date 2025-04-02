@@ -5,12 +5,22 @@ var auth = require('./auth.js');
 var express = require('express');
 var router = express.Router();
 
+const isWebView = (userAgent) => {
+  return /wv|WebView/.test(userAgent) || /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(userAgent);
+};
+
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   res.render('login');
 // });
-router.get('/', (req, res) => {
-  res.redirect('/login');
+router.get('/', (req, res, next) => {
+  const userAgent = req.headers['user-agent'];
+  console.log("user-agent:" , userAgent);
+  if(isWebView(userAgent)){
+    return next();
+  }else {
+    res.redirect('/login');
+  }
 });
 
 router.get('/login', (req,res) => {
