@@ -14,18 +14,15 @@ const isWebView = (userAgent) => {
 //   res.render('login');
 // });
 router.get('/', (req, res, next) => {
-  const userAgent = req.headers['user-agent'];
-  console.log("user-agent:" , userAgent);
-  if(isWebView(userAgent)){
-    return next();
-  }else {
-    res.redirect('/login');
-  }
+  return res.redirect('/login');
 });
 
 router.get('/login', (req,res) => {
   const idToken = req.cookies[CookieService.ID_TOKEN_COOKIE.name];
-  if (!idToken) {
+  const userAgent = req.headers['user-agent'];
+  console.log("user-agent" , userAgent);
+
+  if (!idToken && !isWebView(userAgent)) {
     console.log('No ID Token found, sending login page');
     res.render('login');
     return;
